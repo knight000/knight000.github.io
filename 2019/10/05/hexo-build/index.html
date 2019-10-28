@@ -67,7 +67,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/05/uswY90.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/05/uswGhq.png">
-<meta property="og:updated_time" content="2019-10-05T06:20:25.404Z">
+<meta property="og:updated_time" content="2019-10-24T08:58:07.180Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEXO搭建博客，并发布到Github上">
 <meta name="twitter:description" content="拥有一个GITHUB账号和仓库 如果你已经有了请跳过这一步骤  注册github首先，进入https://github.com/，你会看到以下的界面Username:是你账号显示的名称，也是别人搜索你的时候的名字，建立博客时也要用到，建议起一个简单好记的名字Email:可以用来登录之类的东西，不用解释了吧。Password:…记得设置的别太简单了，当然也不要把它忘了。填写好了之后，点击下面的Sig">
@@ -242,11 +242,19 @@
                 
               
 
-              <time title="创建时间：2019-10-05 11:40:19 / 修改时间：14:20:25" itemprop="dateCreated datePublished" datetime="2019-10-05T11:40:19+08:00">2019-10-05</time>
+              <time title="创建时间：2019-10-05 11:40:19" itemprop="dateCreated datePublished" datetime="2019-10-05T11:40:19+08:00">2019-10-05</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-24 16:58:07" itemprop="dateModified" datetime="2019-10-24T16:58:07+08:00">2019-10-24</time>
+              </span>
             
           
 
@@ -266,14 +274,14 @@
 </blockquote>
 <h4 id="注册github"><a href="#注册github" class="headerlink" title="注册github"></a>注册github</h4><p>首先，进入<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a>，你会看到以下的界面<br><img src="https://s2.ax1x.com/2019/10/05/uswY90.png" alt="Github注册界面"><br><strong>Username</strong>:是你账号显示的名称，也是别人搜索你的时候的名字，建立博客时也要用到，建议起一个简单好记的名字<br><strong>Email</strong>:可以用来登录之类的东西，不用解释了吧。<br><strong>Password</strong>:…记得设置的别太简单了，当然也不要把它忘了。<br>填写好了之后，点击下面的<strong>Sign up for Github</strong>，然后按照提示去做，你就拥有你的Github账户了。</p>
 <h4 id="绑定SSH"><a href="#绑定SSH" class="headerlink" title="绑定SSH"></a>绑定SSH</h4><p>你需要安装一个Git，请<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">点击这里去官网下载</a><br>安装的时候一直默认就好，安装完成之后，打开CMD，Powershell或者Git Bash，依次输入以下3条指令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的GitHub注册邮箱&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"你的GitHub用户名"</span></span><br><span class="line">git config --global user.email <span class="string">"你的GitHub注册邮箱"</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"你的GitHub注册邮箱"</span></span><br></pre></td></tr></table></figure>
 
 <p>完成之后会自动在C:\Users[你的windows用户名]里面创建一个叫.ssh的文件夹，打开里面就多了3个文件：</p>
 <blockquote>
 <p>id_rsa<br>id_rsa.pub<br>known_hosts</p>
 </blockquote>
 <p>打开id_rsa.pub，把里面的内容复制，然后在<a href="https://github.com/settings/keys" target="_blank" rel="noopener">https://github.com/settings/keys</a>里面点击<strong>SSH and GPG keys</strong>，然后点击<strong>New SSH key</strong>这个绿框框，Title是标题，自己填个就好，在key一栏里面把你从id_rsa.pub里面复制的东西粘贴进去，点击<strong>Add SSH key</strong>，这样就添加成功了。<br>之后可以在你的计算机上输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
 
 <p>如果输出是</p>
 <blockquote>
@@ -282,26 +290,26 @@
 <p>就证明你成功了</p>
 <h4 id="建立你的repository"><a href="#建立你的repository" class="headerlink" title="建立你的repository"></a>建立你的repository</h4><p>点击New repository创建，名称为[你的用户名.github.io]，用户名就是之前创建时填的<strong>Username</strong>。<br>然后复制SSH，后面修改_config.yml会用到，拿来发布到github的时候用。<br><img src="https://s2.ax1x.com/2019/10/05/uswGhq.png" alt="Githubssh"></p>
 <h2 id="安装Nodejs和hexo"><a href="#安装Nodejs和hexo" class="headerlink" title="安装Nodejs和hexo"></a>安装Nodejs和hexo</h2><p>首先，进入官网，下载nodejs，<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">点击这里进入nodejs官网</a><br>安装好之后，运行<strong>Node.js command prompt</strong>，输入:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
 <p>等待读条完毕后，创建一个<strong>空文件夹</strong>，然后使用cd [路径]或者直接shift+右键，点击在此处打开powershell或者命令提示符，然后输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
 <p>这样就完成了hexo的初始化<br>要测试的话，在这时候输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p>然后在浏览器里输入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>就能看到一个hexo的初始页面了。<br>记得安装github部署插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
 <h2 id="设置-config-yml"><a href="#设置-config-yml" class="headerlink" title="设置_config.yml"></a>设置_config.yml</h2><p>进入你创建的博客文件夹，里面有一个文件，叫做_config.yml，它是你博客的配置文件，修改它，达到你所需要的效果。<br>以下讲一些基础的设置吧。<br><strong>title</strong>:网站的标题，显示在标签栏和网站中。<br><strong>subtitle</strong>:可以理解为副标题。<br><strong>description</strong>:网站描述，会显示在网站中。<br><strong>author</strong>:用户名，显示在网站中的各种地方。<br><strong>language</strong>:语言，这里填hexo主题所提供的语言包的名称，在themes\主题名称\languages这个目录下，有很多.yml文件，像是zh-CN.yml就在这一栏填写zh-CN<br><strong>timezone</strong>:时区，建议填写Asia/Shanghai<br>然后翻下去，找到<br><strong>theme</strong>:这里填写你的主题名称，主题可以在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>里面找到。<br>接下来就是设置<strong>deploy</strong>了，在文件中找到<strong>deploy</strong>这一栏，按照以下方式填写:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repository:</span> <span class="string">之前复制的项目SSH</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 
 <p>设置好之后记得保存。<br>这个时候输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>然后等读条完毕后访问[你的github用户名.github.io]就能看见你的页面了。</p>
 <h2 id="安装并修改主题"><a href="#安装并修改主题" class="headerlink" title="安装并修改主题"></a>安装并修改主题</h2><p><strong>这里以NEXT主题为例</strong><br><a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">主题Github</a><br><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">主题官网</a><br>进入你的博客文件夹，打开命令窗口[cmd,powershell,gitbash都可以]，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 
 <p>等待读条完毕，你就会发现你的博客文件夹里面的themes目录下，多了个next文件夹，进去修改_config.yml以达成你想要的效果，主题官网上已有强大的说明，这里就不再做叙述。</p>
 <ul>
@@ -309,17 +317,17 @@
 </ul>
 <h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>若你要绑定域名，请在[你的博客文件夹\source]这个目录里面，新建一个 名为CNAME的文件[<strong>注意:无任何后缀名,可新建一个文本文档然后删除掉后缀名</strong>]，打开并编辑，把你要绑定的域名写进去，然后在域名提供商的解析那里设置CNAME，填上[你的github用户名.github.io]就可以了。</p>
 <h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p>hexo的新建文章非常简单，在你的博客文件夹下，运行指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;文章名&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"文章名"</span></span><br></pre></td></tr></table></figure>
 
 <p>就会自动在[你的博客文件夹\source_posts]创建一个[文章名.md]文件，使用markdown语法修改它，然后保存就可以了。<br>在生成的文章最上层，有默认生成的</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: 你的文章名</span><br><span class="line">date: 生成的时间</span><br><span class="line">tags: 标签请自己填</span><br></pre></td></tr></table></figure>
 
 <p>完善它。<br>完成后输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>然后等读条完毕后访问你的博客地址就能看见了。<br>不过建议用hexo d发布前先用hexo s在本地预览一下情况。</p>
 <h2 id="标签的使用"><a href="#标签的使用" class="headerlink" title="标签的使用"></a>标签的使用</h2><p>在你的博客文件夹下，运行指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
 
 <p>然后进入[你的博客文件夹\source\tags]，修改 index.md文件以达到你想要的效果<br>在里面添加markdown语法的链接让进入此页面的人能进入到相关标签的页面</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">标签名</span>](<span class="link">/tags/标签名</span>)</span><br></pre></td></tr></table></figure>
@@ -369,6 +377,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/10/28/projecteuler/" rel="prev" title="欧拉计划">
+                  欧拉计划 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -435,7 +447,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -444,7 +456,7 @@
       
       <div class="site-state-item site-state-tags">
         
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -452,6 +464,18 @@
   </nav>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://toyomu.abn-team.top" title="http://toyomu.abn-team.top" rel="noopener" target="_blank">Toyomu桑的博客</a>
+        </li>
+      
+    </ul>
+  </div>
 
       </div>
 

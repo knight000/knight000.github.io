@@ -67,7 +67,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/05/uswY90.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/05/uswGhq.png">
-<meta property="og:updated_time" content="2019-10-24T08:58:07.180Z">
+<meta property="og:updated_time" content="2019-11-02T09:18:36.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEXO搭建博客，并发布到Github上">
 <meta name="twitter:description" content="拥有一个GITHUB账号和仓库 如果你已经有了请跳过这一步骤  注册github首先，进入https://github.com/，你会看到以下的界面Username:是你账号显示的名称，也是别人搜索你的时候的名字，建立博客时也要用到，建议起一个简单好记的名字Email:可以用来登录之类的东西，不用解释了吧。Password:…记得设置的别太简单了，当然也不要把它忘了。填写好了之后，点击下面的Sig">
@@ -253,7 +253,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-24 16:58:07" itemprop="dateModified" datetime="2019-10-24T16:58:07+08:00">2019-10-24</time>
+                <time title="修改时间：2019-11-02 17:18:36" itemprop="dateModified" datetime="2019-11-02T17:18:36+08:00">2019-11-02</time>
               </span>
             
           
@@ -305,7 +305,7 @@
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repository:</span> <span class="string">之前复制的项目SSH</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 
 <p>设置好之后记得保存。<br>这个时候输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>然后等读条完毕后访问[你的github用户名.github.io]就能看见你的页面了。</p>
 <h2 id="安装并修改主题"><a href="#安装并修改主题" class="headerlink" title="安装并修改主题"></a>安装并修改主题</h2><p><strong>这里以NEXT主题为例</strong><br><a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">主题Github</a><br><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">主题官网</a><br>进入你的博客文件夹，打开命令窗口[cmd,powershell,gitbash都可以]，输入</p>
@@ -315,7 +315,9 @@
 <ul>
 <li>注意大小写，特别是文件和图片的引用。</li>
 </ul>
-<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>若你要绑定域名，请在[你的博客文件夹\source]这个目录里面，新建一个 名为CNAME的文件[<strong>注意:无任何后缀名,可新建一个文本文档然后删除掉后缀名</strong>]，打开并编辑，把你要绑定的域名写进去，然后在域名提供商的解析那里设置CNAME，填上[你的github用户名.github.io]就可以了。</p>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>若你要绑定域名，请在[你的博客文件夹\source]这个目录里面，新建一个 名为CNAME的文件[<strong>注意:无任何后缀名,可新建一个文本文档然后删除掉后缀名</strong>]，打开并编辑，把你要绑定的域名写进去，然后在域名提供商的解析那里设置CNAME，填上[你的github用户名.github.io]就可以了。<br>然后编辑_config.yml，找到<strong>skip_render:</strong>这一栏，把CNAME添加进去，如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">skip_render:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">README.md</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">CNAME</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p>hexo的新建文章非常简单，在你的博客文件夹下，运行指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"文章名"</span></span><br></pre></td></tr></table></figure>
 
@@ -323,9 +325,15 @@
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: 你的文章名</span><br><span class="line">date: 生成的时间</span><br><span class="line">tags: 标签请自己填</span><br></pre></td></tr></table></figure>
 
 <p>完善它。<br>完成后输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>然后等读条完毕后访问你的博客地址就能看见了。<br>不过建议用hexo d发布前先用hexo s在本地预览一下情况。</p>
+<h2 id="标签和归档"><a href="#标签和归档" class="headerlink" title="标签和归档"></a>标签和归档</h2><p>next主题有自带的标签和归档，但是你依然要用指令来生成他们</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br><span class="line">hexo new page archives</span><br></pre></td></tr></table></figure>
+
+<p>当你在文章里使用了标签，就会在生成页面的时候自动生成一个归档，不过你需要编辑source\tags目录下的index.md，使用如下方式来添加对标签归档页面的链接，当然，你可以添加更多元素在此页面上。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[标签名](/tags/标签名)</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="标签的使用"><a href="#标签的使用" class="headerlink" title="标签的使用"></a>标签的使用</h2><p>在你的博客文件夹下，运行指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
 
@@ -429,7 +437,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#拥有一个GITHUB账号和仓库"><span class="nav-number">1.</span> <span class="nav-text">拥有一个GITHUB账号和仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注册github"><span class="nav-number">1.0.1.</span> <span class="nav-text">注册github</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定SSH"><span class="nav-number">1.0.2.</span> <span class="nav-text">绑定SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建立你的repository"><span class="nav-number">1.0.3.</span> <span class="nav-text">建立你的repository</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nodejs和hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Nodejs和hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-config-yml"><span class="nav-number">3.</span> <span class="nav-text">设置_config.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装并修改主题"><span class="nav-number">4.</span> <span class="nav-text">安装并修改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定域名"><span class="nav-number">5.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建文章"><span class="nav-number">6.</span> <span class="nav-text">新建文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签的使用"><span class="nav-number">7.</span> <span class="nav-text">标签的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束"><span class="nav-number">8.</span> <span class="nav-text">结束</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#拥有一个GITHUB账号和仓库"><span class="nav-number">1.</span> <span class="nav-text">拥有一个GITHUB账号和仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注册github"><span class="nav-number">1.0.1.</span> <span class="nav-text">注册github</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定SSH"><span class="nav-number">1.0.2.</span> <span class="nav-text">绑定SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建立你的repository"><span class="nav-number">1.0.3.</span> <span class="nav-text">建立你的repository</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nodejs和hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Nodejs和hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-config-yml"><span class="nav-number">3.</span> <span class="nav-text">设置_config.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装并修改主题"><span class="nav-number">4.</span> <span class="nav-text">安装并修改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定域名"><span class="nav-number">5.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建文章"><span class="nav-number">6.</span> <span class="nav-text">新建文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签和归档"><span class="nav-number">7.</span> <span class="nav-text">标签和归档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签的使用"><span class="nav-number">8.</span> <span class="nav-text">标签的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束"><span class="nav-number">9.</span> <span class="nav-text">结束</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

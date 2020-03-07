@@ -67,7 +67,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/05/uswY90.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/10/05/uswGhq.png">
-<meta property="og:updated_time" content="2020-03-07T09:49:30.494Z">
+<meta property="og:updated_time" content="2020-03-07T09:59:17.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEXO搭建博客，并发布到Github上">
 <meta name="twitter:description" content="拥有一个GITHUB账号和仓库 如果你已经有了请跳过这一步骤  注册github首先，进入https://github.com/，你会看到以下的界面Username:是你账号显示的名称，也是别人搜索你的时候的名字，建立博客时也要用到，建议起一个简单好记的名字Email:可以用来登录之类的东西，不用解释了吧。Password:…记得设置的别太简单了，当然也不要把它忘了。填写好了之后，点击下面的Sig">
@@ -280,7 +280,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 17:49:30" itemprop="dateModified" datetime="2020-03-07T17:49:30+08:00">2020-03-07</time>
+                <time title="修改时间：2020-03-07 17:59:17" itemprop="dateModified" datetime="2020-03-07T17:59:17+08:00">2020-03-07</time>
               </span>
             
           
@@ -389,6 +389,22 @@
 <p>确定安装完毕后，在<strong>博客配置文件</strong>添加以下设置</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">search.xml</span></span><br><span class="line"><span class="attr">  field:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">  content:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
+<p>上面的是默认设置，其中<strong>field</strong>这一栏决定了搜索的范围，个人是<strong>all</strong>，然后下面贴出官方的介绍</p>
+<blockquote>
+<ul>
+<li><p><strong>path</strong> - file path. By default is <code>search.xml</code> . If the file extension is <code>.json</code>, the output format will be JSON. Otherwise XML format file will be exported.</p>
+</li>
+<li><p>field - the search scope you want to search, you can chose:</p>
+<ul>
+<li><strong>post</strong> (Default) - will only covers all the posts of your blog.</li>
+<li><strong>page</strong> - will only covers all the pages of your blog.</li>
+<li><strong>all</strong> - will covers all the posts and pages of your blog.</li>
+</ul>
+</li>
+<li><p><strong>content</strong> - whether contains the whole content of each article. If <code>false</code>, the generated results only cover title and other meta info without mainbody. By default is <code>true</code>.</p>
+</li>
+</ul>
+</blockquote>
 <p>然后在<strong>主题配置文件</strong>找到<strong>local_search</strong>这一栏，<strong>enable</strong>改为true，其他根据自己需要修改，这里贴出我的配置文件</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Local Search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/wzpan/hexo-generator-search</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># If auto, trigger search by changing input.</span></span><br><span class="line">  <span class="comment"># If manual, trigger search by pressing enter key or search button.</span></span><br><span class="line"><span class="attr">  trigger:</span> <span class="string">auto</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line"><span class="attr">  top_n_per_article:</span> <span class="bullet">-1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line"><span class="attr">  unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line"><span class="attr">  preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 

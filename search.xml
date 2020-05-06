@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>生成包含多域名的自签名证书</title>
+      <link href="/2020/05/06/create-openssl-certificate/"/>
+      <url>/2020/05/06/create-openssl-certificate/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一切的开始"><a href="#一切的开始" class="headerlink" title="一切的开始"></a>一切的开始</h2><p>为什么会写下这篇blog呢？<del>才不是因为好久没写blog想写点什么呢</del></p><p>因为我想给我的Nginx小工具加点功能，至于为什么要用到证书呢…这个就不深入说了。</p><h3 id="需要准备的东西"><a href="#需要准备的东西" class="headerlink" title="需要准备的东西"></a>需要准备的东西</h3><p>首先，你需要一个<a href="http://slproweb.com/products/Win32OpenSSL.html" target="_blank" rel="noopener"><strong>openssl</strong></a>，下载安装后如果输入指令没反应请尝试重启电脑/添加环境变量这样的基本操作，当然直接使用<strong>OpenSSL Command Prompt</strong>也是不错的选择。</p><p>然后，你需要一个趁手的<strong>文本编辑器</strong>，这里推荐的是<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a>和<a href="https://notepad-plus-plus.org/" target="_blank" rel="noopener">Notepad++</a>。</p><p>一切就绪后，弄一个空文件夹，然后找到openssl安装目录，把<code>bin\cnf</code>里面的样板cnf拷贝出来，也就是<code>openssl.cnf</code></p><h2 id="那么开始吧"><a href="#那么开始吧" class="headerlink" title="那么开始吧"></a>那么开始吧</h2><h3 id="修改-cnf"><a href="#修改-cnf" class="headerlink" title="修改.cnf"></a>修改.cnf</h3><p>首先，你需要修改刚刚拷贝过来的<code>openssl.cnf</code></p><p>在<code>[ req ]</code>里增加<code>req_extensions = v3_req</code></p><p>把<code>[ req_distinguished_name ]</code>下所有代有<code>0.</code>开头的<code>0.</code>去掉</p><p>在<code>[ v3_req ]</code>里新增<code>subjectAltName = @alt_names</code></p><p>在<code>[ CA_default ]</code>和<code>[ tsa_config1 ]</code>里的<code>dir</code>一栏，把里面的示例路径换成你新建文件夹的路径</p><blockquote><p>虽然不知道有没有影响但是<strong>非常不建议用中文路径</strong></p></blockquote><p>然后就是重点了，要生成包含多域名的证书，在cnf底部加上<code>[ alt_names ]</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[ alt_names ]</span><br><span class="line">DNS.1=第一个域名</span><br><span class="line">DNS.2=第二个域名</span><br><span class="line">DNS.N=第N个域名</span><br></pre></td></tr></table></figure><p>这样就设置好了，注意，域名可以跟Nginx里一样像<code>*. example.com</code>写。</p><h3 id="进入证书生成步骤"><a href="#进入证书生成步骤" class="headerlink" title="进入证书生成步骤"></a>进入证书生成步骤</h3><blockquote><p>注意，本节的指令均在新建的文件夹里运行</p></blockquote><h4 id="生成ca证书和密钥"><a href="#生成ca证书和密钥" class="headerlink" title="生成ca证书和密钥"></a>生成ca证书和密钥</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa 2048 &gt; ca.key</span><br><span class="line">openssl req -new -x509 -days 3650 -keyout ca.key -out ca.crt -config openssl.cnf</span><br></pre></td></tr></table></figure><p>注意：这一步会要求设置密码，如果密码过短会报错。</p><h4 id="使用ca证书生成server证书和签名请求"><a href="#使用ca证书生成server证书和签名请求" class="headerlink" title="使用ca证书生成server证书和签名请求"></a>使用ca证书生成server证书和签名请求</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 2048</span><br><span class="line">openssl req -new -key server.key -out server.csr -config openssl.cnf</span><br></pre></td></tr></table></figure><p>注意：这一步的<code>Common Name</code>请写上<code>[ alt_names ]</code>里的其中一个域名，(server)的名字不重要，这里也可以改成你想要的其他名字</p><h4 id="签署server-crt"><a href="#签署server-crt" class="headerlink" title="签署server.crt"></a>签署server.crt</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl ca -<span class="keyword">in</span> server.csr -out server.crt -cert ca.crt -keyfile ca.key -extensions v3_req -config openssl.cnf</span><br></pre></td></tr></table></figure><p>这里会要求输入你生成ca的时候设置的密码。一路y下去之后就完成了。</p><h4 id="Nginx的一些设置"><a href="#Nginx的一些设置" class="headerlink" title="Nginx的一些设置"></a>Nginx的一些设置</h4><p>把你生成好的证书和密钥放进<strong>nginx</strong>的<code>conf/</code>文件夹里，当然这里建议单独建立一个文件夹来存放证书，然后就可以通过修改<code>nginx.conf</code>来愉快的使用https了。</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssl</span> <span class="literal">on</span>;</span><br><span class="line"><span class="attribute">ssl_certificate</span> ca/server.crt;</span><br><span class="line"><span class="attribute">ssl_certificate_key</span> ca/server.key;</span><br></pre></td></tr></table></figure><h4 id="结束了"><a href="#结束了" class="headerlink" title="结束了"></a>结束了</h4><p>为了方便，也可以把签署的指令写在批处理文件里，比如这样</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">@<span class="built_in">echo</span> password:不记得密码的话可以写在这里提醒自己</span><br><span class="line">openssl ca -<span class="keyword">in</span> server.csr -out server.crt -cert ca.crt -keyfile ca.key -extensions v3_req -config openssl.cnf</span><br></pre></td></tr></table></figure><p>这样修改完<code>openssl.cnf</code>后，就可以很方便的签署证书了。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><p><a href="https://blog.51cto.com/colinzhouyj/1566438" target="_blank" rel="noopener">https://blog.51cto.com/colinzhouyj/1566438</a> </p><p><a href="https://blog.csdn.net/shasharoman/article/details/79577975" target="_blank" rel="noopener">https://blog.csdn.net/shasharoman/article/details/79577975</a> </p><p><a href="https://blog.51cto.com/colinzhouyj/1564916" target="_blank" rel="noopener">https://blog.51cto.com/colinzhouyj/1564916</a> </p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Nginx </tag>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我也不知道写了什么</title>
       <link href="/2020/01/22/whatamicoding/"/>
       <url>/2020/01/22/whatamicoding/</url>
@@ -37,9 +58,9 @@
       
         <tags>
             
-            <tag> 欧拉计划 </tag>
-            
             <tag> 学习 </tag>
+            
+            <tag> 欧拉计划 </tag>
             
             <tag> Python </tag>
             
@@ -93,7 +114,7 @@
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
       
-        <content type="html"><![CDATA[<h1 id="目前只有这些标签"><a href="#目前只有这些标签" class="headerlink" title="目前只有这些标签"></a>目前只有这些标签</h1><ul><li><a href="/tags/杂谈">杂谈</a></li><li><a href="/tags/建站">建站</a></li><li><a href="/tags/hexo">hexo</a></li><li><a href="/tags/Github">Github</a></li><li><a href="/tags/欧拉计划">欧拉计划</a></li><li><a href="/tags/学习">学习</a></li><li><a href="/tags/Python">Python</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="目前只有这些标签"><a href="#目前只有这些标签" class="headerlink" title="目前只有这些标签"></a>目前只有这些标签</h1><ul><li><a href="/tags/杂谈">杂谈</a></li><li><a href="/tags/建站">建站</a></li><li><a href="/tags/hexo">hexo</a></li><li><a href="/tags/Github">Github</a></li><li><a href="/tags/欧拉计划">欧拉计划</a></li><li><a href="/tags/学习">学习</a></li><li><a href="/tags/Python">Python</a></li><li><a href="/tags/Nginx">Nginx</a></li></ul>]]></content>
       
     </entry>
     

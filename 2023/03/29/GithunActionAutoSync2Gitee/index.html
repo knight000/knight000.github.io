@@ -23,23 +23,20 @@
     var CONFIG = {"hostname":"knight.abn-team.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="项目地址https:&#x2F;&#x2F;github.com&#x2F;knight000&#x2F;heroku_discordBOT               感谢Toyomu和kickkick提供的部分源码和支持。 discord.py官方文档">
+  <meta name="description" content="GithubAction的创建仓库内点击Actions，然后点击New workflow，里面有很多已经写好的，如果点击set up a workflow yourself的话，在右侧有Marketplace，可以直接搜索并添加别人的actions。 另一种方法是在仓库的根目录&#x2F;.github&#x2F;workflows&#x2F;内创建一个yml，里面写入action内容。 自动同步">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在heroku部署discord.py bot">
-<meta property="og:url" content="http://knight.abn-team.top/2020/08/08/heroku-discord-bot/index.html">
+<meta property="og:title" content="GithunActionAutoSync2Gitee">
+<meta property="og:url" content="http://knight.abn-team.top/2023/03/29/GithunActionAutoSync2Gitee/index.html">
 <meta property="og:site_name" content="Knight000&#39;s Blog">
-<meta property="og:description" content="项目地址https:&#x2F;&#x2F;github.com&#x2F;knight000&#x2F;heroku_discordBOT               感谢Toyomu和kickkick提供的部分源码和支持。 discord.py官方文档">
+<meta property="og:description" content="GithubAction的创建仓库内点击Actions，然后点击New workflow，里面有很多已经写好的，如果点击set up a workflow yourself的话，在右侧有Marketplace，可以直接搜索并添加别人的actions。 另一种方法是在仓库的根目录&#x2F;.github&#x2F;workflows&#x2F;内创建一个yml，里面写入action内容。 自动同步">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.herokucdn.com/deploy/button.png">
-<meta property="article:published_time" content="2020-08-08T08:50:46.000Z">
-<meta property="article:modified_time" content="2020-11-12T05:15:48.950Z">
+<meta property="article:published_time" content="2023-03-29T01:55:25.000Z">
+<meta property="article:modified_time" content="2023-03-29T04:45:51.094Z">
 <meta property="article:author" content="Knight000">
-<meta property="article:tag" content="学习">
-<meta property="article:tag" content="python">
+<meta property="article:tag" content="Github">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.herokucdn.com/deploy/button.png">
 
-<link rel="canonical" href="http://knight.abn-team.top/2020/08/08/heroku-discord-bot/">
+<link rel="canonical" href="http://knight.abn-team.top/2023/03/29/GithunActionAutoSync2Gitee/">
 
 
 <script id="page-configurations">
@@ -52,7 +49,7 @@
   };
 </script>
 
-  <title>在heroku部署discord.py bot | Knight000's Blog</title>
+  <title>GithunActionAutoSync2Gitee | Knight000's Blog</title>
   
 
 
@@ -192,7 +189,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://knight.abn-team.top/2020/08/08/heroku-discord-bot/">
+    <link itemprop="mainEntityOfPage" href="http://knight.abn-team.top/2023/03/29/GithunActionAutoSync2Gitee/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/Avatar.png">
@@ -205,7 +202,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在heroku部署discord.py bot
+          GithunActionAutoSync2Gitee
         </h1>
 
         <div class="post-meta">
@@ -214,16 +211,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-08-08 16:50:46" itemprop="dateCreated datePublished" datetime="2020-08-08T16:50:46+08:00">2020-08-08</time>
+              <time title="创建时间：2023-03-29 09:55:25 / 修改时间：12:45:51" itemprop="dateCreated datePublished" datetime="2023-03-29T09:55:25+08:00">2023-03-29</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-12 13:15:48" itemprop="dateModified" datetime="2020-11-12T13:15:48+08:00">2020-11-12</time>
-              </span>
 
           
 
@@ -236,35 +227,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/knight000/heroku_discordBOT">https://github.com/knight000/heroku_discordBOT</a></p>
-<p>
-    <a target="_blank" href="https://dashboard.heroku.com/new?template=https%3a%2f%2fgithub.com%2fknight000%2fheroku_discordBOT" rel="nofollow noopener">
-    <img src="https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67" alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.png" style="max-width:100%;">
-</a>
-</p>
+        <h2 id="GithubAction的创建"><a href="#GithubAction的创建" class="headerlink" title="GithubAction的创建"></a>GithubAction的创建</h2><p>仓库内点击<code>Actions</code>，然后点击<code>New workflow</code>，里面有很多已经写好的，如果点击<code>set up a workflow yourself</code>的话，在右侧有<code>Marketplace</code>，可以直接搜索并添加别人的<strong>actions</strong>。</p>
+<p>另一种方法是在仓库的根目录&#x2F;.github&#x2F;workflows&#x2F;内创建一个yml，里面写入action内容。</p>
+<h2 id="自动同步fork"><a href="#自动同步fork" class="headerlink" title="自动同步fork"></a>自动同步fork</h2><p>正在使用的<a target="_blank" rel="noopener" href="https://github.com/knight000/trackerslist/blob/master/.github/workflows/Sync.yml">Workflow</a></p>
+<p>虽然Github自带一个<code>Sync Fork</code>的按钮，但是每次都自己点总是麻烦的，所以有人搞了个Github Action来做这件事，<a target="_blank" rel="noopener" href="https://github.com/tgymnich/fork-sync">https://github.com/tgymnich/fork-sync</a></p>
+<p>创建新的workflow后输入里面的内容，以<a target="_blank" rel="noopener" href="https://github.com/ngosang/trackerslist">trackerlist</a>为例</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Sync</span> <span class="string">Fork</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span> <span class="comment"># push 时触发, 主要是为了测试配置有没有问题</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;* */24 * * *&#x27;</span> <span class="comment"># 每天一次</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">repo-sync:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">tgymnich/fork-sync@v1.8</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.TOKEN</span> <span class="string">&#125;&#125;</span> <span class="comment">#Github Token，记得加入secrets</span></span><br><span class="line">          <span class="attr">owner:</span> <span class="string">ngosang</span> <span class="comment"># fork 的上游仓库 user</span></span><br><span class="line">          <span class="attr">head:</span> <span class="string">master</span> <span class="comment"># fork 的上游仓库 branch</span></span><br><span class="line">          <span class="attr">base:</span> <span class="string">master</span> <span class="comment"># 本地仓库 branch</span></span><br></pre></td></tr></table></figure>
 
-<p>感谢<a target="_blank" rel="noopener" href="http://toyomu.abn-team.top/">Toyomu</a>和<a target="_blank" rel="noopener" href="https://kiki.abn-team.top/">kickkick</a>提供的部分源码和支持。</p>
-<p><a target="_blank" rel="noopener" href="https://discordpy.readthedocs.io/">discord.py官方文档</a></p>
-<span id="more"></span>
+<p>在<code>settings/secrets(Secrets and variables)/actions</code>里把<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">Github的Token</a>设置上，比如workflow写的是<code>secrets.TOKEN</code>，所以添加的时候Name填写<code>TOKEN</code>，Secret里填写Token内容</p>
+<p>注意Token创建的时候要选择持续<strong>时间</strong>，然后权限要开启<strong>repo</strong>和<strong>workflow</strong>的权限</p>
+<p>如果部署完成之后，运行显示错误是</p>
+<blockquote>
+<p>repo-sync<br>Failed to create or merge pull request: HttpError: Validation Failed: {“resource”:”PullRequest”,”code”:”custom”,”message”:”No commits between knight000:master and ngosang:master”}</p>
+</blockquote>
+<p>就证明初步成功了，因为你部署了workflow所以比原仓库新，等原仓库更新后点<code>Re-run jobs</code>就可以测试是否正确部署了。</p>
+<h2 id="自动提交修改到Gitee"><a href="#自动提交修改到Gitee" class="headerlink" title="自动提交修改到Gitee"></a>自动提交修改到Gitee</h2><p>以下action文件来自<a target="_blank" rel="noopener" href="https://juejin.cn/post/6894928345830522887">https://juejin.cn/post/6894928345830522887</a></p>
+<p>把GITEE_PRIVATE_KEY、<a target="_blank" rel="noopener" href="https://gitee.com/profile/personal_access_tokens">GITEE_TOKEN</a>、GITEE_USER都添加到secrets里，然后Gitee内<a target="_blank" rel="noopener" href="https://gitee.com/projects/import/url">从URL导入仓库</a>，创建同名仓库即可同步。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 Github actions， 在 Github 仓库的每一次 commit 后自动同步到 Gitee 上</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">sync2gitee</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">repo-sync:</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">      <span class="attr">dst_key:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_PRIVATE_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">dst_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">gitee_user:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_USER</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">persist-credentials:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">sync</span> <span class="string">github</span> <span class="string">-&gt;</span> <span class="string">gitee</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">Yikun/hub-mirror-action@master</span></span><br><span class="line">        <span class="attr">if:</span> <span class="string">env.dst_key</span> <span class="string">&amp;&amp;</span> <span class="string">env.dst_token</span> <span class="string">&amp;&amp;</span> <span class="string">env.gitee_user</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># 必选，需要同步的 Github 用户（源）</span></span><br><span class="line">          <span class="attr">src:</span> <span class="string">&#x27;github/$<span class="template-variable">&#123;&#123; github.repository_owner &#125;&#125;</span>&#x27;</span></span><br><span class="line">          <span class="comment"># 必选，需要同步到的 Gitee 用户（目的）</span></span><br><span class="line">          <span class="attr">dst:</span> <span class="string">&#x27;gitee/$<span class="template-variable">&#123;&#123; secrets.GITEE_USER &#125;&#125;</span>&#x27;</span></span><br><span class="line">          <span class="comment"># 必选，Gitee公钥对应的私钥，https://gitee.com/profile/sshkeys</span></span><br><span class="line">          <span class="attr">dst_key:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_PRIVATE_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="comment"># 必选，Gitee对应的用于创建仓库的token，https://gitee.com/profile/personal_access_tokens</span></span><br><span class="line">          <span class="attr">dst_token:</span>  <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="comment"># 如果是组织，指定组织即可，默认为用户 user</span></span><br><span class="line">          <span class="comment"># account_type: org</span></span><br><span class="line">          <span class="comment"># 直接取当前项目的仓库名</span></span><br><span class="line">          <span class="attr">static_list:</span> <span class="string">$&#123;&#123;</span> <span class="string">github.event.repository.name</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文(?)"></a>正文(?)</h2><h3 id="插件加载器"><a href="#插件加载器" class="headerlink" title="插件加载器"></a>插件加载器</h3><p><code>dsc_bot.py</code>里是<strong>插件加载器</strong>，把写好的插件放在plugins文件夹里面就会自动加载，当然作者不是我..</p>
-<p>文件里用到的环境变量之类的可以在app.json里设置，使用环境变量能在开源的前提下保护自己的APIkey和TOKEN，或者让用户直观的自定义一些参数，在插件里请使用<code>os</code>模块的<code>os.environ[&#39;变量名&#39;]</code>来调用，请参照<a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/app-json-schema">官方文档</a>或者直接参照项目内的文件。</p>
-<h3 id="help指令"><a href="#help指令" class="headerlink" title="help指令"></a>help指令</h3><p>discord.py支持自动生成help文档，可以在命令里传入参数help&#x3D;‘’或者用多行字符串来写，会自动提取为帮助文档，<code>Category</code>的help文档也是，只输入help获取的帮助只有多行字符串的第一行，help [指令]能获取详细的帮助。</p>
-<h3 id="Category"><a href="#Category" class="headerlink" title="Category"></a>Category</h3><p>设置<code>Category</code>可以让help生成时自动分类，也可以让你开发新指令时不用再次添加<code>bot.add_command</code>，具体请看以下demo。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> discord</span><br><span class="line"><span class="keyword">from</span> discord.ext <span class="keyword">import</span> commands</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">demo</span>(commands.Cog):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    这里是Category的帮助文档</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="meta">    @commands.command(<span class="params">name=<span class="string">&quot;test&quot;</span></span>)</span></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">self,ctx</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        这里是指令的帮助文档</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">await</span> ctx.send(<span class="string">&#x27;Hello World&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">setup</span>(<span class="params">bot</span>):</span><br><span class="line">    bot.add_cog(demo())</span><br></pre></td></tr></table></figure>
-
-<p>由于<code>Category</code>是类，所以编写的时候请记得传入<code>self</code></p>
-<h3 id="embed"><a href="#embed" class="headerlink" title="embed"></a>embed</h3><p>discord不但支持markdown，还支持embed嵌入元素，甚至可以在embed里使用markdown来达成美妙的效果。更多请参考<a target="_blank" rel="noopener" href="https://discordpy.readthedocs.io/en/latest/api.html?highlight=embed#discord.Embed">官方文档</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">embed_box = discord.Embed(title=<span class="string">&#x27;demo&#x27;</span>,description=<span class="string">&#x27;hello world&#x27;</span>, url=<span class="string">&#x27;https://www.python.org&#x27;</span>)</span><br><span class="line">embed_box.set_image(url=<span class="string">&#x27;https://www.python.org/static/img/python-logo@2x.png&#x27;</span>)</span><br><span class="line"><span class="keyword">await</span> ctx.send(embed=embed_box)</span><br></pre></td></tr></table></figure>
-
-<p>title:embed的标题</p>
-<p>url:点击标题所跳转的链接</p>
-<p>set_image:为embed嵌入一张图片</p>
-<h3 id="image的一点注意事项"><a href="#image的一点注意事项" class="headerlink" title="image的一点注意事项"></a>image的一点注意事项</h3><p>discord当然可以发图，但是这是以<strong>BytesIO</strong>为形式发送文件，如果是网页上的图片的话，与其用requests爬下来再发送不如直接嵌入在embed里。如果需要发送图片请用<strong>BytesIO</strong>处理后再发送。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line">web_image = requests.get(url)</span><br><span class="line"><span class="keyword">await</span> ctx.send(file=discord.File(BytesIO(web_image.content), filename=<span class="string">&#x27;demo&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
-<h2 id="同步github和heroku的更改并自动部署"><a href="#同步github和heroku的更改并自动部署" class="headerlink" title="同步github和heroku的更改并自动部署"></a>同步github和heroku的更改并自动部署</h2><p>首先，进入你的<a target="_blank" rel="noopener" href="https://dashboard.heroku.com/apps"><strong>heroku dashboard</strong></a>，点击你的应用然后进入<strong>Deploy</strong>界面</p>
-<p>然后<strong>Deployment method</strong>选择<strong>Github</strong>，链接你的Github账户，在<strong>App connected to GitHub</strong>里选择你存放APP的仓库并链接，并开启<strong>Automatic deploys</strong>，至此设置完成，当你push到github时heroku也会同步更新，当然也可以切换分支什么的，更多的就等你们自己探索了，毕竟我也只是刚刚接触heroku。</p>
+<p>因为有<code>if: env.dst_key &amp;&amp; env.dst_token &amp;&amp; env.gitee_user</code>这一句所以信息不足的情况下是会跳过执行，显示执行成功而不是显示错误，请注意。</p>
 
     </div>
 
@@ -280,7 +261,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://knight.abn-team.top/2020/08/08/heroku-discord-bot/" title="在heroku部署discord.py bot">http://knight.abn-team.top/2020/08/08/heroku-discord-bot/</a>
+    <a href="http://knight.abn-team.top/2023/03/29/GithunActionAutoSync2Gitee/" title="GithunActionAutoSync2Gitee">http://knight.abn-team.top/2023/03/29/GithunActionAutoSync2Gitee/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -291,8 +272,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
-              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/Github/" rel="tag"># Github</a>
           </div>
 
         
@@ -301,13 +281,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/29/Tampermonkey-Onclick/" rel="prev" title="油猴脚本对Onclick事件的处理">
-      <i class="fa fa-chevron-left"></i> 油猴脚本对Onclick事件的处理
+    <a href="/2023/03/29/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/09/30/upgrade-py-centos/" rel="next" title="在CentOS里升级到Python3.8">
-      在CentOS里升级到Python3.8 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -367,7 +344,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="nav-number">1.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">正文(?)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">插件加载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#help%E6%8C%87%E4%BB%A4"><span class="nav-number">2.2.</span> <span class="nav-text">help指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Category"><span class="nav-number">2.3.</span> <span class="nav-text">Category</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#embed"><span class="nav-number">2.4.</span> <span class="nav-text">embed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#image%E7%9A%84%E4%B8%80%E7%82%B9%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">2.5.</span> <span class="nav-text">image的一点注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5github%E5%92%8Cheroku%E7%9A%84%E6%9B%B4%E6%94%B9%E5%B9%B6%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="nav-number">3.</span> <span class="nav-text">同步github和heroku的更改并自动部署</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GithubAction%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">GithubAction的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5fork"><span class="nav-number">2.</span> <span class="nav-text">自动同步fork</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E5%88%B0Gitee"><span class="nav-number">3.</span> <span class="nav-text">自动提交修改到Gitee</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -509,7 +486,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'knight000.github.io',
       owner       : 'knight000',
       admin       : ['knight000'],
-      id          : '9671ecca70dbf987a2b18519a942156c',
+      id          : 'c0195169f87d27493da04e0ef2dd1414',
         language: 'zh-CN',
       distractionFreeMode: true
     });
